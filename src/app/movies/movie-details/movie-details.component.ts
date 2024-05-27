@@ -28,7 +28,7 @@ export class MovieDetailsComponent {
     });
   }
 
-  back(): void {
+  goBack(): void {
     this.router.navigate(['/movies'])
   }
 }

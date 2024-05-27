@@ -1,11 +1,11 @@
-<button class="small" (click)="back()"><span class="icon-home"></span> Back</button>
+<button class="small" (click)="goBack()"><span class="icon-home"></span> Back</button>
 @if (movieDetailsData$ | async; as movieDetail) {
 <article>
     <h1>{{movieDetail.title}}</h1>
     <div class="row">
         <div class="col-sm-12 col-md-4">
             <figure>
-                <img [src]="movieDetail.poster" alt="Movie poster" priority />
+                <img [src]="movieDetail.poster" alt="Movie poster" />
             </figure>
         </div>
         <div class="col-sm-12 col-md-8">
