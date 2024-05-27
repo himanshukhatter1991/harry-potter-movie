@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-sm-12 col-md-9">
+        <h4 class="movie-title">{{movie.title}}</h4>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 movie-info">
+                <span>Release Date: {{movie.release_date}}</span>
+                <span>Budget: ${{movie.budget}} million</span>
+                <span>Duration: {{movie.duration | convertMinHr }}</span>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-3">
+        <button class="small" (click)="onMovieSelection(movie.id)">Details</button>
+
+    </div>
+</div>

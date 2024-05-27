@@ -1,0 +1,47 @@
+<button class="small" (click)="back()"><span class="icon-home"></span> Back</button>
+@if (movieDetailsData$ | async; as movieDetail) {
+<article>
+    <h1>{{movieDetail.title}}</h1>
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <figure>
+                <img [src]="movieDetail.poster" alt="Movie poster" priority />
+            </figure>
+        </div>
+        <div class="col-sm-12 col-md-8">
+            <p><strong>Summary:</strong> {{movieDetail.summary}}</p>
+        </div>
+    </div>
+    <table class="horizontal">
+        <caption>Details</caption>
+        <thead>
+            <tr>
+                <th>Box Office</th>
+                <th>Budget</th>
+                <th>Duration</th>
+                <th>Producers</th>
+                <th>Cinematographers</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="Box Office">${{movieDetail.box_office}} million</td>
+                <td data-label="Budget">${{movieDetail.budget}} million</td>
+                <td data-label="Duration">{{movieDetail.duration | convertMinHr }}</td>
+                <td data-label="Producers">
+                    @for (producer of movieDetail.producers; track producer; let last = $last) {
+                    {{producer}}@if (!last) {
+                    <ng-container>,</ng-container>
+                    }
+                    } @empty {
+                    <p>No data available</p>
+                    }
+                </td>
+                <td data-label="Cinematographers">{{movieDetail.cinematographers}}</td>
+            </tr>
+        </tbody>
+    </table>
+</article>
+} @else {
+<p>No data available</p>
+}
